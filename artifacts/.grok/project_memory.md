@@ -1,6 +1,0 @@
-- Portfolio goal: freelancing or client work [2026-11-15]
-- Portfolio format: personal website (custom or template) [2026-11-15]
-- User is a junior data analyst, still learning; will showcase assignment/exam projects [2026-11-15]
-- Preference: make portfolio as attractive as possible [2026-11-15]
-- Created attractive single-page portfolio site at artifacts/index.html [2026-11-15]
-- Features 3 academic projects: Supermarket Sales (Python), Bank Branch (Excel), Student Performance [2026-11-15]
