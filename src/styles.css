@@ -1,0 +1,277 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-paper: #0f172a;
+  --color-paper-2: #1e293b;
+  --color-card: #1e293b;
+  --color-ink: #f8fafc;
+  --color-muted: #94a3b8;
+  --color-line: #334155;
+  --color-teal: #06b6d4;
+  --color-teal-deep: #0c4a6e;
+  --color-copper: #2dd4bf;
+  --color-danger: #f87171;
+  --radius-card: 1rem;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) { cursor: pointer; }
+  ::selection { background: var(--color-teal); color: #fff; }
+  :focus-visible { outline: 2px solid var(--color-teal); outline-offset: 3px; }
+}
+
+.hero-bg {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0c4a6e 100%);
+}
+
+.card-lift {
+  transition: transform 0.35s ease, border-color 0.35s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-16px) scale(1.035);
+  border-color: #06b6d4;
+  box-shadow: 0 18px 40px rgba(6, 182, 212, 0.18);
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 80;
+  height: 3px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: linear-gradient(90deg, #06b6d4, #2dd4bf);
+  pointer-events: none;
+}
+
+.hero-stage {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 55%, #0c4a6e 100%);
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.09) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(circle at 30% 40%, black, transparent 72%);
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(36px);
+  pointer-events: none;
+}
+
+.scene-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  pointer-events: none;
+}
+
+.zoom-section {
+  transform-origin: center center;
+}
+
+.section-glass {
+  position: relative;
+  z-index: 10;
+  background:
+    radial-gradient(ellipse 80% 45% at 50% -8%, rgba(6, 182, 212, 0.18), transparent 62%),
+    #0f172a;
+}
+
+.panel {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 32%),
+    #1e293b;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 18px 40px rgba(2, 6, 23, 0.35);
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(103, 232, 249, 0.9), rgba(30, 41, 59, 0.15) 46%, rgba(45, 212, 191, 0.75));
+  pointer-events: none;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+html.lenis {
+  scroll-behavior: auto;
+}
+
+.orb-a {
+  top: -3rem;
+  right: 6%;
+  width: 18rem;
+  height: 18rem;
+  background: #06b6d4;
+  opacity: 0.16;
+}
+
+.orb-b {
+  bottom: -4rem;
+  left: 4%;
+  width: 14rem;
+  height: 14rem;
+  background: #2dd4bf;
+  opacity: 0.12;
+}
+
+@keyframes grow {
+  to { transform: scaleX(1); }
+}
+
+@keyframes rise {
+  from { transform: translateY(48px); }
+  to { transform: none; }
+}
+
+@keyframes drift {
+  to { transform: translateY(-36px); }
+}
+
+@keyframes float-a {
+  to { transform: translate3d(-36px, 90px, 0) scale(1.12); }
+}
+
+@keyframes float-b {
+  to { transform: translate3d(40px, -80px, 0) scale(0.9); }
+}
+
+@keyframes pan-grid {
+  to { background-position: 0 120px; }
+}
+
+@keyframes pop {
+  from { transform: scale(0.92); }
+  to { transform: none; }
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(36px); }
+  to { opacity: 1; transform: none; }
+}
+
+.hero-in {
+  animation: hero-in 0.85s cubic-bezier(0.16, 0.84, 0.32, 1) both;
+}
+
+.hero-in-2 { animation-delay: 0.12s; }
+.hero-in-3 { animation-delay: 0.24s; }
+.hero-in-4 { animation-delay: 0.36s; }
+
+.shine {
+  background-size: 200% 100%;
+  animation: shine 3.5s linear infinite;
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: grow linear both;
+    animation-timeline: scroll(root);
+  }
+
+  .orb-a {
+    animation: float-a linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+
+  .orb-b {
+    animation: float-b linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+
+  .hero-grid {
+    animation: pan-grid linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+
+  .drift {
+    animation: drift linear both;
+    animation-timeline: view();
+    animation-range: cover 20% cover 100%;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .rise {
+    animation: rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 34%;
+  }
+
+  .project-card:nth-child(2) { animation-range: entry 8% cover 42%; }
+  .project-card:nth-child(3) { animation-range: entry 14% cover 48%; }
+  .skill-tile:nth-child(2) { animation-range: entry 5% cover 38%; }
+  .skill-tile:nth-child(3) { animation-range: entry 9% cover 42%; }
+  .skill-tile:nth-child(4) { animation-range: entry 13% cover 46%; }
+  .skill-tile:nth-child(5) { animation-range: entry 17% cover 50%; }
+
+  .portrait-pop {
+    animation: pop linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+}
+
+.recharts-default-legend .recharts-legend-item-text {
+  color: var(--color-ink) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .card-hover,
+  .card-hover:hover { transform: none; transition: none; }
+  .scroll-progress,
+  .orb,
+  .rise,
+  .drift,
+  .hero-grid,
+  .portrait-pop,
+  .hero-in,
+  .shine {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

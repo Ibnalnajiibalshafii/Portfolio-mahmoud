@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Mahmoud Nagib · Data analyst",
+      "hasCanvas": false,
+      "bodyTextLen": 1306,
+      "bodyTextHash": "3da0b167c1710e5910c36f8ad94087d9783c7ad85ace7258b1038713351a4c5e",
+      "bodyTextPrefix": "Mahmoud Nagib Portfolio Supermarket Branches Students Email NAIR",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Mahmoud Nagib · Data analyst",
+      "hasCanvas": false,
+      "bodyTextLen": 1266,
+      "bodyTextHash": "4d0aa674f9448e35c359d85e9c46d239c0743cdcabedc69ff33376d7a885493f",
+      "bodyTextPrefix": "Mahmoud Nagib Email NAIROBI · JUNIOR DATA ANALYST I turn a sprea",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
